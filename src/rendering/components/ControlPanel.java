@@ -10,17 +10,14 @@ public class ControlPanel extends JPanel {
     }
 
     private void initializePanel() {
-        GridBagLayout gbl = new GridBagLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbl.setConstraints(this, gbc);
-        setLayout(gbl);
+        setLayout(new BorderLayout());
+        add(new JLabel("Useless settings go here!", JLabel.CENTER), BorderLayout.NORTH);
 
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        add(new JLabel("Settings go here!"), gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        add(new JTextArea(), gbc);
+        JPanel settingsPanel = new JPanel();
+        settingsPanel.setLayout(new GridLayout(3, 1));
+        settingsPanel.add(new JSlider());
+        settingsPanel.add(new JSlider());
+        settingsPanel.add(new JButton("Silly Button"));
+        add(settingsPanel, BorderLayout.CENTER);
     }
 }
