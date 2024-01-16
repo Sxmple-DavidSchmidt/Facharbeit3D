@@ -1,20 +1,33 @@
 package world.objects;
 
-import math.Vec3D;
+import util.Vec3D;
+
 public class Cube implements Object3D {
+    private final Vec3D[] frontRow;
+
+    public Cube() {
+        frontRow = new Vec3D[] {
+                new Vec3D(-1, -1),
+                new Vec3D(-1, 1),
+                new Vec3D(1, -1),
+                new Vec3D(1, 1)
+        };
+    }
 
     @Override
     public Vec3D[] getVertices() {
-        Vec3D c1 = new Vec3D(-1, -1);
-        Vec3D c2 = new Vec3D(1, -1);
-        Vec3D c3 = new Vec3D(-1, 1);
-        Vec3D c4 = new Vec3D(1, 1);
-        Vec3D c5 = new Vec3D(-1 + 0.5, -1 - 0.3);
-        Vec3D c6 = new Vec3D(1 + 0.5, -1 - 0.3);
-        Vec3D c7 = new Vec3D(-1 + 0.5, 1 - 0.3);
-        Vec3D c8 = new Vec3D(1 + 0.5, 1 - 0.3);
+        Vec3D offset = new Vec3D(0.707, -0.5);
 
-        return new Vec3D[] {c1, c2, c3, c4, c5, c6, c7, c8};
+        return new Vec3D[] {
+                frontRow[0],
+                frontRow[1],
+                frontRow[2],
+                frontRow[3],
+                frontRow[0].add(offset),
+                frontRow[1].add(offset),
+                frontRow[2].add(offset),
+                frontRow[3].add(offset),
+        };
     }
 
     @Override

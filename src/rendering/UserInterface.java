@@ -6,19 +6,19 @@ import world.World;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.File;
 import java.net.URL;
 
-public class Window {
+
+public class UserInterface {
     private JFrame frame;
     private WorldRenderer worldRenderer;
     private ControlPanel controlPanel;
     private Image icon;
 
-    public Window() {
+
+    public UserInterface() {
         frame = new JFrame("3D Renderer");
         initializeFrame();
         buildFrame();
@@ -50,9 +50,7 @@ public class Window {
     private void buildFrame() {
         frame.setLayout(new BorderLayout());
 
-
         controlPanel = new ControlPanel();
-
         worldRenderer = new WorldRenderer();
         worldRenderer.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 

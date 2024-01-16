@@ -1,7 +1,7 @@
 package rendering.components;
 
-import math.Int2D;
-import math.Vec3D;
+import util.Int2D;
+import util.Vec3D;
 import world.World;
 import world.objects.Object3D;
 

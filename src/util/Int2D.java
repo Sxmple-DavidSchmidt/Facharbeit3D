@@ -1,4 +1,4 @@
-package math;
+package util;
 
 public class Int2D {
     public int x;

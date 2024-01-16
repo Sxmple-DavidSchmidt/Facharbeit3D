@@ -1,4 +1,4 @@
-import rendering.Window;
+import rendering.UserInterface;
 import world.World;
 import world.objects.Cube;
 
@@ -7,8 +7,8 @@ public class Main {
         World world = new World();
         world.addObject(new Cube());
 
-        Window w = new Window();
-        w.setWorld(world);
-        w.show();
+        UserInterface ui = new UserInterface();
+        ui.setWorld(world);
+        ui.show();
     }
 }
