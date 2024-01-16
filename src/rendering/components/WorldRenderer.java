@@ -55,6 +55,5 @@ public class WorldRenderer extends JComponent {
         g.drawLine(v1.x, v1.y, v2.x, v2.y);
         g.drawLine(v2.x, v2.y, v3.x, v3.y);
         g.drawLine(v3.x, v3.y, v1.x, v1.y);
-
     }
 }
