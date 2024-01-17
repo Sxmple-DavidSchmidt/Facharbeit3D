@@ -1,11 +1,10 @@
 package world;
 
-import world.objects.Object3D;
-
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class World {
-    private ArrayList<Object3D> worldObjects;
+    private final ArrayList<Object3D> worldObjects;
 
     public World() {
         worldObjects = new ArrayList<>();

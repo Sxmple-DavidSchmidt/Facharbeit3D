@@ -1,4 +1,4 @@
-package world.objects;
+package world;
 
 import util.Vec3D;
 
