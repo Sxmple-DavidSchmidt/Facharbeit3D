@@ -12,9 +12,13 @@ import java.util.ArrayList;
 
 public class WorldRenderer extends JComponent {
     private World world;
+    private Color fillColor;
+    private Color drawColor;
 
     public WorldRenderer() {
         world = new World();
+        fillColor = new Color(0, 0, 0, 0.25f);
+        drawColor = Color.BLACK;
     }
 
     public void setWorld(World world) {
@@ -69,8 +73,15 @@ public class WorldRenderer extends JComponent {
         return new RenderingCoordinate(rx, ry);
     }
 
-    public static void drawTriangle(Graphics g, OnscreenCoordinate v1, OnscreenCoordinate v2, OnscreenCoordinate v3) {
-        g.setColor(Color.BLACK);
+    public void drawTriangle(Graphics g, OnscreenCoordinate v1, OnscreenCoordinate v2, OnscreenCoordinate v3) {
+        g.setColor(fillColor);
+        g.fillPolygon(
+                new int[] {v1.x, v2.x, v3.x},
+                new int[] {v1.y, v2.y, v3.y},
+                3
+        );
+
+        g.setColor(drawColor);
         g.drawLine(v1.x, v1.y, v2.x, v2.y);
         g.drawLine(v2.x, v2.y, v3.x, v3.y);
         g.drawLine(v3.x, v3.y, v1.x, v1.y);

@@ -26,15 +26,6 @@ public class UserInterface {
     private void initializeFrame() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        // Set Bounds -> Size / Location
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setBounds(
-                screenSize.width/4,
-                screenSize.height/4,
-                screenSize.width/2,
-                screenSize.height/2
-        );
-
         try {
             URL iconUrl = this.getClass().getResource("/resources/icon.png");
             if (iconUrl == null) {
@@ -51,11 +42,16 @@ public class UserInterface {
         frame.setLayout(new BorderLayout());
 
         controlPanel = new ControlPanel();
+
         worldRenderer = new WorldRenderer();
         worldRenderer.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int worldRendererSize = Math.min(screenSize.width, screenSize.height) / 2;
+        worldRenderer.setPreferredSize(new Dimension(worldRendererSize, worldRendererSize));
 
         frame.add(controlPanel, BorderLayout.WEST);
         frame.add(worldRenderer, BorderLayout.CENTER);
+        frame.pack();
     }
 
     public void show() {
