@@ -8,15 +8,14 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 
 
 public class UserInterface {
-    private JFrame frame;
+    private final JFrame frame;
     private WorldRenderer worldRenderer;
     private ControlPanel controlPanel;
-    private Image icon;
-
 
     public UserInterface() {
         frame = new JFrame("3D Renderer");
@@ -36,14 +35,15 @@ public class UserInterface {
                 screenSize.height/2
         );
 
-        // Set Icon
-        URL iconUrl = this.getClass().getResource("/resources/icon.png");
         try {
-            System.out.println(iconUrl.getFile() + " " + iconUrl.getPath());
-            icon = ImageIO.read(new File(iconUrl.getFile()));
-            frame.setIconImage(icon);
-        } catch (Exception e) {
-            icon = frame.getIconImage();
+            URL iconUrl = this.getClass().getResource("/resources/icon.png");
+            if (iconUrl == null) {
+                System.out.println("Konnte Icon nicht finden.");
+            } else {
+                frame.setIconImage(ImageIO.read(new File(iconUrl.getFile())));
+            }
+        } catch (IOException e) {
+            System.out.println("Konnte Icon nicht laden.");
         }
     }
 

@@ -68,6 +68,7 @@ public class WorldRenderer extends JComponent {
         double ry = vec.z + 0.35 * vec.y;
         return new RenderingCoordinate(rx, ry);
     }
+
     public static void drawTriangle(Graphics g, OnscreenCoordinate v1, OnscreenCoordinate v2, OnscreenCoordinate v3) {
         g.setColor(Color.BLACK);
         g.drawLine(v1.x, v1.y, v2.x, v2.y);
